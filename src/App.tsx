@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect}            from 'react';
+import Routes                        from "./routes";
+import {BrowserRouter as Router}     from 'react-router-dom';
+import {useDispatch}                 from "react-redux";
+import {getCurrentUser, initSession} from "./controllers/Auth";
+import storage                       from "./utils/storage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (storage.getItem('token')) {
+            dispatch(getCurrentUser());
+        } else {
+            dispatch(initSession());
+        }
+
+    }, [dispatch])
+    return (
+        <div className="App">
+            <Router>
+                <Routes/>
+            </Router>
+        </div>
+    );
 }
 
 export default App;

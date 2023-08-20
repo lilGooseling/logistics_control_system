@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+# TMS-Frontend (Transportation Management System)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Фронтенд код для веб-приложения микросервиса "Logistics Control System".
 
-## Available Scripts
+## Env-файл
 
-In the project directory, you can run:
+Для подключения к API в корне проекта следует создать файл `.env.local` со следующим содержимым:
 
-### `npm start`
+```bash
+REACT_APP_API_HOST= ссылка на backend api
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Пример файла: `.env_example`.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Скрипты
 
-### `npm test`
+Установка зависимостей:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+$ yarn install || yarn
+```
 
-### `npm run build`
+Для запуска сборки для разработчиков
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+$ yarn start || yarn dev
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Для создания прод сборки
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+$ yarn build
+```
 
-### `npm run eject`
+Для тестирование исходного кода на ошибки
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+$ yarn test
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Развертывание приложения (front)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- `git clone ...` - склонировать репозиторий
+- `cd tms-frontend` - перейти в директорию проекта
+- `.env.local` - создать env-файл
+- `nvm use` - использовать nodejs требуемой версии
+- `yarn` - установить зависимости
+- `yarn dev` - запустить dev-сервер
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Структура папок проекта
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-src/services: Слой сервисов, исключительно для работы с Api backend
+-src/interfaces: Все Интерфейсы и типы
+-src/controllers: Слой для контроллеров или эффектов, таких как redux thunk или saga
+-src/slices: Слой для Редюсеров и слайсов, пишущих непосредственно в store методы которого используются в controller.
+-src/containers: Слой представления для узкого использования, не подразумевающий универсальных компонент. Так же главный и иерархический слой представлений системы
+-src/components: Слой представлений для переиспользования в containers
+-src/utils: Дополнительные функции помощники
+-src/assets: Шрифты, изображения
+
+
