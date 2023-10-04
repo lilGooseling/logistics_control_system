@@ -1,0 +1,52 @@
+.wrapper {
+  margin-top: 113px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: inherit;
+  flex-direction: column;
+}
+
+.image{
+  width: 114px;
+  height: 152px;
+  background: url("/assets/img/faces_1.png") 100% 100%;
+}
+
+.form {
+  width: 314px;
+  height: 59px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .email {
+    width: 314px;
+    height: 59px;
+  }
+
+  .pass {
+    width: 314px;
+    height: 59px;
+  }
+
+  .question{
+    width: 149px;
+    height: 23px;
+    font-weight: 400;
+    font-size: 17px;
+    color: #FA4A0C;
+  }
+
+  .button {
+    width: 314px;
+    height: 70px;
+    border-radius: 30px;
+    background-color: #FA4A0C;
+    font-weight: 400;
+    font-size: 17px;
+    color: white;
+  }
+}

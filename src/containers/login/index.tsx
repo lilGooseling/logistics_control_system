@@ -7,6 +7,7 @@ import {TStore}                                        from "../../slices/store"
 import {Button, IconButton, InputAdornment, TextField} from "@material-ui/core";
 import generateFormError                               from "../../utils/formError";
 import {Visibility, VisibilityOff} from "@material-ui/icons";
+import styles from './login.module.scss'
 
 
 const Login = () => {
@@ -27,15 +28,17 @@ const Login = () => {
             }
         }
     }
-    return <div>
+    return <div className={styles.wrapper}>
         <Loader loading={loading} content='Входим в систему'/>
 
-        <p >
-            Войти в систему
-        </p>
+        <div className={styles.image}/>
 
-        <form onSubmit={onLoginHandler}>
-            <TextField
+        {/*<p >
+            Войти в систему
+        </p>*/}
+
+        <form className={styles.form} onSubmit={onLoginHandler}>
+            <TextField className={styles.email}
                 id='email'
                 label='E-mail'
                 onChange={(event) => setEmail(event.target.value)}
@@ -46,7 +49,7 @@ const Login = () => {
 
             />
 
-            <TextField
+            <TextField className={styles.pass}
                 id='password'
                 label='Пароль'
                 onChange={(event) => setPassword(event.target.value)}
@@ -69,7 +72,11 @@ const Login = () => {
                 }}
             />
 
-            <Button
+            <p className={styles.question}>
+                Забыли пароль?
+            </p>
+
+            <Button className={styles.button}
                 color="primary"
                 variant="contained"
                 size="large"
