@@ -1,0 +1,75 @@
+.wrapper {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: inherit;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.image{
+  width: 114px;
+  height: 152px;
+  background: url("/assets/img/faces_1.png") 100% 100%;
+  margin-bottom: 180px;
+}
+
+.form {
+  width: 314px;
+  height: 59px;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .mail {
+    font-size: 17px;
+    font-weight: 700;
+    opacity: 40%;
+    line-height: 17px;
+    margin-bottom: 0;
+    margin-left: -265px;
+  }
+  .email {
+    width: 314px;
+    height: 59px;
+    margin-bottom: 30px;
+  }
+
+  .password {
+    font-size: 17px;
+    font-weight: 700;
+    opacity: 40%;
+    line-height: 17px;
+    margin-bottom: 0;
+    margin-left: -252px;
+  }
+
+  .pass {
+    width: 314px;
+    height: 59px;
+    margin-bottom: 20px;
+  }
+
+  .question{
+    width: 149px;
+    height: 23px;
+    font-weight: 400;
+    font-size: 17px;
+    color: #FA4A0C;
+    margin-left: -165px;
+    margin-bottom: 50px;
+  }
+
+  .button {
+    width: 314px;
+    height: 70px;
+    border-radius: 30px;
+    background-color: #FA4A0C;
+    font-weight: 400;
+    font-size: 17px;
+    color: white;
+  }
+}
