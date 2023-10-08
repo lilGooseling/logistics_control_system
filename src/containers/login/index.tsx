@@ -29,63 +29,76 @@ const Login = () => {
         }
     }
     return <div className={styles.wrapper}>
-        <Loader loading={loading} content='Входим в систему'/>
+        <div>
+            <Loader loading={loading} content='Входим в систему'/>
 
-        <div className={styles.image}/>
+            <div className={styles.image}/>
 
-        {/*<p >
+            {/*<p >
             Войти в систему
         </p>*/}
+        </div>
 
-        <form className={styles.form} onSubmit={onLoginHandler}>
-            <TextField className={styles.email}
-                id='email'
-                label='E-mail'
-                onChange={(event) => setEmail(event.target.value)}
-                value={email}
-                type='email'
-                disabled={loading}
-                {...generateFormError('email', errors)}
+        <div>
+            <form className={styles.form} onSubmit={onLoginHandler}>
 
-            />
+                {/*<p className={styles.mail}>
+                    Почта
+                </p>*/}
+                <TextField className={styles.email}
+                           id='email'
+                           label ='E-mail'
+                           onChange={(event) => setEmail(event.target.value)}
+                           value={email}
+                           type='email'
+                           disabled={loading}
+                           {...generateFormError('email', errors)}
 
-            <TextField className={styles.pass}
-                id='password'
-                label='Пароль'
-                onChange={(event) => setPassword(event.target.value)}
-                value={password}
-                type={showPass ? 'text' : 'password'}
-                disabled={loading}
-                size='medium'
-                {...generateFormError('password', errors)}
-                InputProps={{
-                    endAdornment: (
-                        <InputAdornment position="end">
-                            <IconButton
-                                aria-label="toggle password visibility"
-                                onClick={() => setShowPass(!showPass)}
-                            >
-                                {showPass ? <Visibility/> : <VisibilityOff/>}
-                            </IconButton>
-                        </InputAdornment>
-                    )
-                }}
-            />
+                />
 
-            <p className={styles.question}>
-                Забыли пароль?
-            </p>
+                {/*<p className={styles.password}>
+                    Пароль
+                </p>
+*/}
+                <TextField className={styles.pass}
+                           id='password'
+                           label='Пароль'
+                           onChange={(event) => setPassword(event.target.value)}
+                           value={password}
+                           type={showPass ? 'text' : 'password'}
+                           disabled={loading}
+                           size='medium'
+                           {...generateFormError('password', errors)}
+                           InputProps={{
+                               endAdornment: (
+                                   <InputAdornment position="end">
+                                       <IconButton
+                                           aria-label="toggle password visibility"
+                                           onClick={() => setShowPass(!showPass)}
+                                       >
+                                           {showPass ? <Visibility/> : <VisibilityOff/>}
+                                       </IconButton>
+                                   </InputAdornment>
+                               )
+                           }}
+                />
 
-            <Button className={styles.button}
-                color="primary"
-                variant="contained"
-                size="large"
-                disabled={!email || !password}
-                type='submit'
-            >
-                Войти
-            </Button>
-        </form>
+                <p className={styles.question}>
+                    Забыли пароль?
+                </p>
+
+                <Button className={styles.button}
+                        color="primary"
+                        variant="contained"
+                        size="large"
+                        disabled={!email || !password}
+                        type='submit'
+                >
+                    Войти
+                </Button>
+            </form>
+        </div>
+
     </div>
 
 }
