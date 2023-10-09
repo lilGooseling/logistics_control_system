@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction }   from '@reduxjs/toolkit';
-import {AuthStateType, IAuth}                     from "../interfaces/IAuth";
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {AuthStateType, IAuth} from "../interfaces/IAuth";
 import {baseLoadingAction, IMessage, initMessage} from "../interfaces/IApp";
-import storage                                    from "../utils/storage";
+import storage from "../utils/storage";
 
 
 const initialState: AuthStateType = {
@@ -22,8 +22,10 @@ const authSlice = createSlice({
     initialState: initialState,
     reducers: {
         setLoadingAction: baseLoadingAction,
-        loginAction: (state, { payload }: PayloadAction<IAuth>) => {
-            storage.setItem('token', payload.token);
+        loginAction: (state, {payload}: PayloadAction<IAuth>) => {
+            if (payload.token){
+                localStorage.setItem('token', payload.token);
+            }
             return {
                 ...state,
                 token: payload.token,
@@ -35,7 +37,7 @@ const authSlice = createSlice({
                 init: true
             }
         },
-        getCurrentUserAction: (state, { payload }: PayloadAction<IAuth>) => {
+        getCurrentUserAction: (state, {payload}: PayloadAction<IAuth>) => {
             return {
                 ...state,
                 ...payload,
@@ -52,7 +54,7 @@ const authSlice = createSlice({
                 loading: false
             }
         },
-        authMessageAction: (state, { payload }: PayloadAction<IMessage>) => {
+        authMessageAction: (state, {payload}: PayloadAction<IMessage>) => {
             return {
                 ...state,
                 loading: false,

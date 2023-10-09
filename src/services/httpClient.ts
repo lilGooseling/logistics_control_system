@@ -12,7 +12,7 @@ const httpClient = axios.create({
 });
 
 const authorizationHeaderSetterInterceptor = getAuthorizationHeaderSetterInterceptor(() => {
-    const token = store.getState().auth.token;
+    const token = localStorage.getItem('token');
     return token ? token : '';
 });
 

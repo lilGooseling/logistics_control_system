@@ -9,7 +9,8 @@ function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (storage.getItem('token')) {
+        if (localStorage.getItem('token')) {
+            console.log(1);
             dispatch(getCurrentUser());
         } else {
             dispatch(initSession());
