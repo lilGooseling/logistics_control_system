@@ -5,10 +5,12 @@ import {EPermission}                          from "./interfaces/IAuth";
 import PermissionsRoute                       from "./containers/router/permissions-route";
 import Login                                  from "./containers/login";
 import Main                                   from "./containers/main/main";
+import Users from "./containers/users/users";
 
 
 export const AUTH = 'login';
 export const MAIN = 'main';
+export const USERS = 'users';
 
 export const routes: IRoute[] = [
     {
@@ -24,6 +26,13 @@ export const routes: IRoute[] = [
         exact: true,
         permissions: [EPermission.NONE],
         children: <Main/>
+    },
+    {
+        id: USERS,
+        path: '/users',
+        exact: true,
+        permissions: [EPermission.ROLE_SECTION_USER],
+        children: <Users/>
     },
 ];
 
