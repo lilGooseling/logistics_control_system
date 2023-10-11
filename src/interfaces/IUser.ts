@@ -21,13 +21,5 @@ export interface IUserStore{
     users: IUser[],
 }
 
-export interface ICard {
-    id: number,
-    firstName: string,
-    lastName: string,
-    middleName: string,
-    email: string,
-    img: string
-}
 
 
