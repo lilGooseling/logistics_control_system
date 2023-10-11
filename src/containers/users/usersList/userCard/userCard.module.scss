@@ -1,0 +1,26 @@
+
+.singleCard {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px 1px grey;
+  margin-bottom: 20px;
+}
+
+.cardsImage {
+  width: 438px;
+  height: 100px;
+  flex: 0 0 auto;
+  background: url("/assets/img/faces_1.png") 100% 100%;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 10px;
+  border-radius: 10px;
+
+
+}
+
+.cardsBody {
+  margin-bottom: 20px;
+}
