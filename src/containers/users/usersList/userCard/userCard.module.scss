@@ -4,11 +4,12 @@
   justify-content: flex-start;
   align-items: center;
   border-radius: 10px;
-  box-shadow: 0 1px 1px 1px grey;
+  box-shadow: 0 1px 7px 1px grey;
   margin-bottom: 20px;
 }
 
 .cardsImage {
+  margin-top: 5px;
   width: 438px;
   height: 100px;
   flex: 0 0 auto;
@@ -23,4 +24,25 @@
 
 .cardsBody {
   margin-bottom: 20px;
+}
+
+.cardsName {
+  margin-bottom: 8px;
+}
+
+.cardsEmail {
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  opacity: 40%;
+}
+
+.cardsLine {
+  opacity: 40%;
+}
+
+.cardsId {
+  font-size: 15px;
+  font-weight: 700;
+  opacity: 40%;
 }
