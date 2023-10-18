@@ -1,5 +1,7 @@
 
 .singleCard {
+  padding-right: 15px;
+  padding-left: 10px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -9,40 +11,51 @@
 }
 
 .cardsImage {
-  margin-top: 5px;
+  margin-top: 10px;
+  margin-right: 10px;
   width: 438px;
   height: 100px;
   flex: 0 0 auto;
-  background: url("/assets/img/faces_1.png") 100% 100%;
+  background: url("/assets/img/face_2.svg") 100% 100%;
   background-position: center;
   background-size: cover;
   margin-bottom: 10px;
   border-radius: 10px;
 
-
+  &.isMale{
+    background: url("/assets/img/face_3.svg") 100% 100%;
+    background-position: center;
+    background-size: cover;
+  }
 }
 
 .cardsBody {
   margin-bottom: 20px;
+  padding-left: 10px;
 }
 
 .cardsName {
   margin-bottom: 8px;
+  font-family: Adamina;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .cardsEmail {
+  font-family: Adamina;
   margin-bottom: 8px;
   font-size: 15px;
-  font-weight: 700;
-  opacity: 40%;
+  font-weight: 400;
+  opacity: 50%;
 }
 
 .cardsLine {
-  opacity: 40%;
+  opacity: 50%;
 }
 
 .cardsId {
+  font-family: Adamina;
   font-size: 15px;
-  font-weight: 700;
-  opacity: 40%;
+  font-weight: 400;
+  opacity: 50%;
 }
