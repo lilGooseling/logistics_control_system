@@ -1,6 +1,8 @@
 import {IUser} from "../../../../interfaces/IUser";
 import styles from './userCard.module.scss'
 import initials from "../../../../utils/initials";
+import isMale from "../../../../utils/isMale";
+import  CN from "classnames";
 
 interface IUSerProps {
     user: IUser;
@@ -13,7 +15,9 @@ const UserCard: React.FC<IUSerProps> = ({user}) => {
 
     return (
         <div className={styles.singleCard}>
-            <div className={styles.cardsImage}/>
+            <div className={CN(styles.cardsImage, {
+                [styles.isMale]: isMale(user)
+            })}/>
             <div className={styles.cardsBody}>
                 <div className={styles.cardsName}>
                     {initials(user)}
