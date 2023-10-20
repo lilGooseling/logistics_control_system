@@ -5,17 +5,20 @@ import {getAllUsersAction} from "../../controllers/UserController";
 import {nextPage} from "../../slices/user";
 import styles from './users.module.scss'
 import UserList from "./usersList/usersList";
+import UsersFilter from "./usersFilter/usersFilter";
 
 
 function Users(): JSX.Element {
     const userState = useSelector((state: TStore) => state.user)
     const dispatch = useDispatch();
 
+
     useEffect(() => {
         dispatch(getAllUsersAction());
     }, [userState.offset, userState.limit, userState.query]);
 
-    return <div>
+    return <div className={styles.usersPage}>
+        <UsersFilter/>
         <UserList/>
     </div>
 }
