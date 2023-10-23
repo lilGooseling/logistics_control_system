@@ -14,6 +14,7 @@ export interface IUser {
 }
 
 export interface IUserStore{
+    loading: boolean,
     count: number,
     limit: number,
     offset: number,

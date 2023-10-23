@@ -5,6 +5,7 @@ import {IUserServerResponse, IUserStore} from "../interfaces/IUser";
 
 
 const initialState: IUserStore = {
+    loading: false,
     count: 0,
     limit: 20,
     offset: 0,
@@ -16,6 +17,12 @@ const userSlice = createSlice({
     name: 'user',
     initialState: initialState,
     reducers: {
+        setLoading: (state,{payload}: PayloadAction<boolean>) => {
+          return {
+              ...state,
+              loading: payload
+          }
+        },
         setAllUsers: (state, {payload}: PayloadAction<IUserServerResponse>) => {
             return {
                 ...state,
@@ -23,7 +30,8 @@ const userSlice = createSlice({
                 users: [
                     ...state.users,
                     ...payload.users
-                ]
+                ],
+                loading: false,
             }
         },
         clearAllUsers: (state) => {
@@ -52,5 +60,6 @@ export const {
     setAllUsers,
     clearAllUsers,
     setQuery,
-    nextPage
+    nextPage,
+    setLoading,
 } = userSlice.actions;
