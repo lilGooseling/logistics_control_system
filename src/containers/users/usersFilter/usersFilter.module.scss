@@ -1,6 +1,10 @@
+.wrapper{
+  display: flex;
+  flex-direction: row;
+}
+
 .filter {
   height: 150px;
-  width: 100%;
   flex: 0 0 auto;
 }
 
@@ -21,4 +25,48 @@
 
 .searchBar {
   padding: 10px;
+}
+
+.sortWrap{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+
+.sort {
+  padding-left: 150px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.sortItem{
+  display: flex;
+  padding-left: 100px;
+  font-size: 17px;
+}
+
+.sortId {
+  padding-right: 40px;
+  font-size: 17px;
+  font-weight: 700;
+  opacity: 40%;
+  cursor: pointer;
+}
+
+.sortName {
+  padding-right: 40px;
+  font-size: 17px;
+  font-weight: 700;
+  opacity: 40%;
+  cursor: pointer;
+}
+
+
+.sortMail {
+  padding-right: 40px;
+  font-size: 17px;
+  font-weight: 700;
+  opacity: 40%;
+  cursor: pointer;
 }
