@@ -2,6 +2,8 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {baseLoadingAction, IMessage, initMessage} from "../interfaces/IApp";
 import storage from "../utils/storage";
 import {IUserServerResponse, IUserStore} from "../interfaces/IUser";
+import {adaptiveSortingInitialState} from "../interfaces/IAdaptive";
+import {adaptiveSortingAction} from "./adaptive/adaptiveSortingAction";
 
 
 const initialState: IUserStore = {
@@ -10,13 +12,15 @@ const initialState: IUserStore = {
     limit: 20,
     offset: 0,
     query: '',
-    users: []
+    users: [],
+    ...adaptiveSortingInitialState
 }
 
 const userSlice = createSlice({
     name: 'user',
     initialState: initialState,
     reducers: {
+        setUserSorting: adaptiveSortingAction,
         setLoading: (state,{payload}: PayloadAction<boolean>) => {
           return {
               ...state,
@@ -49,6 +53,8 @@ const userSlice = createSlice({
         setQuery: (state, {payload}: PayloadAction<string>) =>{
             return {
                 ...state,
+                users:[],
+                offset: 0,
                 query: payload
             }
         }
@@ -62,4 +68,5 @@ export const {
     setQuery,
     nextPage,
     setLoading,
+    setUserSorting
 } = userSlice.actions;

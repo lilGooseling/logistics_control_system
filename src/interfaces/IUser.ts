@@ -1,3 +1,5 @@
+import {IAdaptiveSortingState} from "./IAdaptive";
+
 export interface IUserServerResponse {
     count: number,
     users: IUser[]
@@ -13,7 +15,7 @@ export interface IUser {
     hubIds: number[]
 }
 
-export interface IUserStore{
+export interface IUserStore extends IAdaptiveSortingState{
     loading: boolean,
     count: number,
     limit: number,
