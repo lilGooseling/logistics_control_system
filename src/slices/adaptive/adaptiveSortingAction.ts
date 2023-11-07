@@ -11,7 +11,6 @@ type WritableDraft<T> = T;
 export const adaptiveSortingAction = <T extends withAdaptiveSorting>(state: T, {payload}: PayloadAction<string>):void | T | WritableDraft<T> => {
     const nextValue = nextSortType(payload, state.adaptiveSorting[payload]);
 
-    // @ts-ignore
     return typeof state.offset === "number" ? {
         ...state,
         adaptiveSorting: {
