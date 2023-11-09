@@ -33,7 +33,7 @@ const UsersFilters: React.FC = () => {
                 <h2 className={styles.sort}>Сортировки:</h2>
                 <div className={styles.sortItem}>
                     <AdaptiveSortingComponent keyName='id' name='Id' sorting={userState.adaptiveSorting['id']} changeHandle={(key)=>dispatch(setUserSorting(key))}/>
-                    <AdaptiveSortingComponent keyName='name' name='ФИО' sorting={userState.adaptiveSorting['name']} changeHandle={(key)=>dispatch(setUserSorting(key))}/>
+                    <AdaptiveSortingComponent keyName='lastName' name='ФИО' sorting={userState.adaptiveSorting['lastName']} changeHandle={(key)=>dispatch(setUserSorting(key))}/>
                     <AdaptiveSortingComponent keyName='email' name='Почтовый адресс' sorting={userState.adaptiveSorting['email']} changeHandle={(key)=>dispatch(setUserSorting(key))}/>
                 </div>
             </div>

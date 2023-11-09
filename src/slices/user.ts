@@ -28,7 +28,14 @@ const userSlice = createSlice({
           }
         },
         setAllUsers: (state, {payload}: PayloadAction<IUserServerResponse>) => {
-            return {
+            return state.offset === 0 ? {
+                ...state,
+                count: payload.count,
+                users: [
+                    ...payload.users
+                ],
+                loading: false,
+            } : {
                 ...state,
                 count: payload.count,
                 users: [
