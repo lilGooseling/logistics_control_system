@@ -1,4 +1,4 @@
-import {IAdaptiveSortingState} from "./IAdaptive";
+import {IAdaptiveSearchState, IAdaptiveSortingState} from "./IAdaptive";
 
 export interface IUserServerResponse {
     count: number,
@@ -15,12 +15,11 @@ export interface IUser {
     hubIds: number[]
 }
 
-export interface IUserStore extends IAdaptiveSortingState{
+export interface IUserStore extends IAdaptiveSortingState, IAdaptiveSearchState{
     loading: boolean,
     count: number,
     limit: number,
     offset: number,
-    query: string,
     users: IUser[],
 }
 

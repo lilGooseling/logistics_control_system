@@ -15,3 +15,12 @@ export interface IAdaptiveSortingFields {
 export const adaptiveSortingInitialState:IAdaptiveSortingState = {
     adaptiveSorting: {}
 }
+
+
+export interface IAdaptiveSearchState {
+    adaptiveSearch: string
+}
+
+export const adaptiveSearchInitialState:IAdaptiveSearchState = {
+    adaptiveSearch: ''
+}
