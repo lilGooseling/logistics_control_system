@@ -1,8 +1,7 @@
 import styles from './usersFilter.module.scss';
 import {useEffect, useState} from "react";
-import {IUser, IUserStore} from "../../../interfaces/IUser";
 import {useDispatch, useSelector} from "react-redux";
-import {setQuery, setUserSorting} from "../../../slices/user";
+import {setUserSearching, setUserSorting} from "../../../slices/user";
 import {TStore} from "../../../slices/store";
 import AdaptiveSortingComponent from "../../../components/AdaptiveSorting/adaptiveSortingComponent";
 
@@ -16,7 +15,7 @@ const UsersFilters: React.FC = () => {
     },[search]);
 
     const realSetSearch = () => {
-        dispatch(setQuery(search));
+        dispatch(setUserSearching(search));
     }
 
 
@@ -26,7 +25,7 @@ const UsersFilters: React.FC = () => {
             <div className={styles.filter}>
                 <h1 className={styles.header}>Поиск</h1>
                 <div className={styles.search}>
-                    <input type="text" value={search} placeholder="поиск..." className={styles.searchBar} onChange={(e) => dispatch(setSearch(e.target.value))}/>
+                    <input type="text" value={search} placeholder="поиск..." className={styles.searchBar} onChange={(e) => setSearch(e.target.value)}/>
                 </div>
             </div>
             <div className={styles.sortWrap}>
