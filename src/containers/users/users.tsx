@@ -15,7 +15,7 @@ function Users(): JSX.Element {
 
     useEffect(() => {
         dispatch(getAllUsersAction());
-    }, [userState.offset, userState.limit, userState.query, userState.adaptiveSorting]);
+    }, [userState.offset, userState.limit, userState.adaptiveSearch, userState.adaptiveSorting]);
 
     return <div className={styles.usersPage}>
         <UsersFilter/>

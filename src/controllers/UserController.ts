@@ -21,8 +21,8 @@ export const getAllUsersAction = () => {
     return async function (dispatch: Dispatch<any>) {
         dispatch(setLoadingAction(true));
 
-        const {user: {limit, offset, query, adaptiveSorting}} = store.getState();
-        const res = await userService.getAllUsers(limit, offset, query, adaptiveSortingToQueryString(adaptiveSorting));
+        const {user: {limit, offset, adaptiveSearch, adaptiveSorting}} = store.getState();
+        const res = await userService.getAllUsers(limit, offset, adaptiveSearch, adaptiveSortingToQueryString(adaptiveSorting));
         if (res.success && res.data) {
             dispatch(setAllUsers(res.data));
         }

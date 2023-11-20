@@ -2,8 +2,9 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {baseLoadingAction, IMessage, initMessage} from "../interfaces/IApp";
 import storage from "../utils/storage";
 import {IUserServerResponse, IUserStore} from "../interfaces/IUser";
-import {adaptiveSortingInitialState} from "../interfaces/IAdaptive";
+import {adaptiveSearchInitialState, adaptiveSortingInitialState} from "../interfaces/IAdaptive";
 import {adaptiveSortingAction} from "./adaptive/adaptiveSortingAction";
+import {adaptiveSearchingAction} from "./adaptive/adaptiveSearchingAction";
 
 
 const initialState: IUserStore = {
@@ -11,9 +12,9 @@ const initialState: IUserStore = {
     count: 0,
     limit: 20,
     offset: 0,
-    query: '',
     users: [],
-    ...adaptiveSortingInitialState
+    ...adaptiveSortingInitialState,
+    ...adaptiveSearchInitialState
 }
 
 const userSlice = createSlice({
@@ -21,6 +22,7 @@ const userSlice = createSlice({
     initialState: initialState,
     reducers: {
         setUserSorting: adaptiveSortingAction,
+        setUserSearching: adaptiveSearchingAction,
         setLoading: (state,{payload}: PayloadAction<boolean>) => {
           return {
               ...state,
@@ -57,14 +59,6 @@ const userSlice = createSlice({
                 offset: state.offset + state.limit,
             }
         },
-        setQuery: (state, {payload}: PayloadAction<string>) =>{
-            return {
-                ...state,
-                users:[],
-                offset: 0,
-                query: payload
-            }
-        }
     }
 })
 
@@ -72,8 +66,8 @@ export const userReducer = userSlice.reducer;
 export const {
     setAllUsers,
     clearAllUsers,
-    setQuery,
     nextPage,
     setLoading,
-    setUserSorting
+    setUserSorting,
+    setUserSearching
 } = userSlice.actions;
